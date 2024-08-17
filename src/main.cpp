@@ -1,14 +1,14 @@
 #include <Arduino.h>
+#include <SimpleLed.h>
+
+SimpleLed led(LED_BUILTIN);
 
 void setup() {
   Serial.begin(115200);
   
-  pinMode(LED_BUILTIN, OUTPUT);
+  led.blink(500);
 }
 
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(500);
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(500);
+  led.update();
 }
